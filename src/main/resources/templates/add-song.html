@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Song</title>
+</head>
+<body>
+<h1>Add Song</h1>
+<form action="#" th:action="@{/songs/add}" th:object="${song}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    </div>
+    <div>
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" th:field="*{artist}" />
+        <div th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Artist Error</div>
+    </div>
+    <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" th:field="*{genre}" />
+        <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</div>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<a href="/songs">Back to List</a>
+</body>
+</html>
